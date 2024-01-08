@@ -1,6 +1,13 @@
 import "./App.css";
 
 function App() {
+  const todos = [
+    { id: 1, title: "Daily meeting with team", done: false },
+    { id: 2, title: "Pay for rent", done: false },
+    { id: 3, title: "Check emails", done: true },
+    { id: 4, title: "Lunch with Emma", done: false },
+    { id: 5, title: "Meditation", done: false },
+  ];
   return (
     <div className="flex">
       <aside className="hidden lg:block w-64 h-screen p-8 bg-blue-950 text-blue-100">
@@ -19,7 +26,15 @@ function App() {
           </div>
           <div className="lg:hidden">
             <button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 256 256"><path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220ZM146.83,90.83,109.66,128l37.17,37.17a4,4,0,0,1-5.66,5.66l-40-40a4,4,0,0,1,0-5.66l40-40a4,4,0,1,1,5.66,5.66Z"></path></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
+                <path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220ZM146.83,90.83,109.66,128l37.17,37.17a4,4,0,0,1-5.66,5.66l-40-40a4,4,0,0,1,0-5.66l40-40a4,4,0,1,1,5.66,5.66Z"></path>
+              </svg>
             </button>
           </div>
         </div>
@@ -85,8 +100,8 @@ function App() {
         </nav>
         <footer className="absolute bottom-0 my-4">@2023</footer>
       </aside>
-      <main className="main container p-8">
-        <header className="flex justify-between text-gray-700">
+      <main className="main container">
+        <header className="flex justify-between p-8 shadow-md text-gray-700">
           <div className="flex gap-5">
             <button>
               <svg
@@ -126,14 +141,18 @@ function App() {
             </button>
           </div>
         </header>
-        <div>
+        <div className="p-8">
           <section className="py-4">
             <div className="py-8">
-              <h1 className="text-4xl font-bold text-gray-700">Whats up, Joy!</h1>
+              <h1 className="text-4xl font-bold text-gray-700">
+                Whats up, Joy!
+              </h1>
             </div>
             <div>
               <div className="py-4">
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500">Categories</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500">
+                  Categories
+                </h3>
               </div>
               <div className="flex gap-5 my-2">
                 <div className="w-56 p-6 bg-white rounded-xl shadow-sm">
@@ -152,29 +171,55 @@ function App() {
           <section className="py-4">
             <div>
               <div className="py-4">
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500">Todays Tasks</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500">
+                  Todays Tasks
+                </h3>
               </div>
               <div className="my-2 text-gray-700">
-                <div className="flex gap-3 items-center w-full my-3 p-6 bg-white rounded-xl shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#d946ef " viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path></svg>
-                  <h5 className="text-lg font-semibold">Daily meeting with team</h5>
-                </div>
-                <div className="flex gap-3 items-center w-full my-3 p-6 bg-white rounded-xl shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#c7d2fe " viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-                  <h5 className="text-lg font-semibold line-through">Pay for rent</h5>
-                </div>
-                <div className="flex gap-3 items-center w-full my-3 p-6 bg-white rounded-xl shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#3b82f6 " viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path></svg>
-                  <h5 className="text-lg font-semibold">Check emails</h5>
-                </div>
-                <div className="flex gap-3 items-center w-full my-3 p-6 bg-white rounded-xl shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#d946ef " viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path></svg>
-                  <h5 className="text-lg font-semibold">Lunch with Emma</h5>
-                </div>
-                <div className="flex gap-3 items-center w-full my-3 p-6 bg-white rounded-xl shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#3b82f6 " viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path></svg>
-                  <h5 className="text-lg font-semibold">Meditation</h5>
-                </div>
+                {todos.map((todo) =>
+                  todo.done ? (
+                    <div
+                      key={todo.title}
+                      className="flex gap-3 items-center w-full group my-3 p-6 bg-indigo-50 rounded-xl shadow-sm"
+                    >
+                      <button className="flex items-center w-6 h-6 overflow-hidden rounded-full border-[3px] border-indigo-300">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="28"
+                          height="28"
+                          fill="#a5b4fc"
+                          viewBox="0 0 256 256"
+                        >
+                          <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path>
+                        </svg>
+                      </button>
+                      <h5 className="text-lg font-semibold text-gray-400 line-through">
+                        <a href="#">{todo.title}</a>
+                      </h5>
+                    </div>
+                  ) : (
+                    <div
+                      key={todo.title}
+                      className="flex gap-3 items-center w-full group my-3 p-6 bg-white hover:bg-indigo-50 rounded-xl shadow-sm"
+                    >
+                      <button className="flex items-center w-6 h-6 overflow-hidden rounded-full border-[3px] group-odd:border-blue-500 group-even:border-fuchsia-500">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="hidden group-hover:block"
+                          width="28"
+                          height="28"
+                          fill="#818cf8  "
+                          viewBox="0 0 256 256"
+                        >
+                          <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path>
+                        </svg>
+                      </button>
+                      <h5 className="text-lg font-semibold">
+                        <a href="#">{todo.title}</a>
+                      </h5>
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </section>
