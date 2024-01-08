@@ -1,6 +1,9 @@
 import "./App.css";
+import Category from "./components/category";
+import Task from "./components/task";
 
 function App() {
+
   const todos = [
     { id: 1, title: "Daily meeting with team", done: false },
     { id: 2, title: "Pay for rent", done: false },
@@ -8,6 +11,16 @@ function App() {
     { id: 4, title: "Lunch with Emma", done: false },
     { id: 5, title: "Meditation", done: false },
   ];
+
+  const categories = [
+  { id: 1, title: "Personal", tasks: 18 },
+  { id: 2, title: "Business", tasks: 40 },
+  { id: 3, title: "Work", tasks: 32 },
+  { id: 4, title: "Meeting", tasks: 12 },
+  { id: 5, title: "Shopping", tasks: 25 },
+  { id: 6, title: "Others", tasks: 5 },
+  ];
+
   return (
     <div className="flex">
       <aside className="hidden lg:block w-64 h-screen p-8 bg-blue-950 text-blue-100">
@@ -148,80 +161,10 @@ function App() {
                 Whats up, Joy!
               </h1>
             </div>
-            <div>
-              <div className="py-4">
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500">
-                  Categories
-                </h3>
-              </div>
-              <div className="flex gap-5 my-2">
-                <div className="w-56 p-6 bg-white rounded-xl shadow-sm">
-                  <span className="font-medium text-gray-400">40 tasks</span>
-                  <h4 className="mb-5 text-2xl font-semibold">Business</h4>
-                  <hr className="border-[3px] border-fuchsia-500" />
-                </div>
-                <div className="w-56 p-6 bg-white rounded-xl shadow-sm">
-                  <span className="font-medium text-gray-400">18 tasks</span>
-                  <h4 className="mb-5 text-2xl font-semibold">Personal</h4>
-                  <hr className="border-[3px] border-blue-500" />
-                </div>
-              </div>
-            </div>
+            <Category data={categories} />
           </section>
           <section className="py-4">
-            <div>
-              <div className="py-4">
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500">
-                  Todays Tasks
-                </h3>
-              </div>
-              <div className="my-2 text-gray-700">
-                {todos.map((todo) =>
-                  todo.done ? (
-                    <div
-                      key={todo.title}
-                      className="flex gap-3 items-center w-full group my-3 p-6 bg-indigo-50 rounded-xl shadow-sm"
-                    >
-                      <button className="flex items-center w-6 h-6 overflow-hidden rounded-full border-[3px] border-indigo-300">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="28"
-                          height="28"
-                          fill="#a5b4fc"
-                          viewBox="0 0 256 256"
-                        >
-                          <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path>
-                        </svg>
-                      </button>
-                      <h5 className="text-lg font-semibold text-gray-400 line-through">
-                        <a href="#">{todo.title}</a>
-                      </h5>
-                    </div>
-                  ) : (
-                    <div
-                      key={todo.title}
-                      className="flex gap-3 items-center w-full group my-3 p-6 bg-white hover:bg-indigo-50 rounded-xl shadow-sm"
-                    >
-                      <button className="flex items-center w-6 h-6 overflow-hidden rounded-full border-[3px] group-odd:border-blue-500 group-even:border-fuchsia-500">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="hidden group-hover:block"
-                          width="28"
-                          height="28"
-                          fill="#818cf8  "
-                          viewBox="0 0 256 256"
-                        >
-                          <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path>
-                        </svg>
-                      </button>
-                      <h5 className="text-lg font-semibold">
-                        <a href="#">{todo.title}</a>
-                      </h5>
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
+            <Task headerTitle="Today Tasks" data={todos} />
           </section>
         </div>
         <div></div>
